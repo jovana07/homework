@@ -1,0 +1,99 @@
+<h1>Failed Charges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer firstname </th>
+      <th>Customer lastname </th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @charges.each do |charge| %>
+    <% if charge.charge_type == 'failed' %>
+      <tr  class="failed">
+        <td><%= charge.customer.first_name %></td>
+        <td><%= charge.customer.last_name %></td>
+        <td><%= charge.amount %></td>
+        <td><%= charge.created %></td>
+       <!-- <td><%= link_to 'Show', charge %></td>
+        <td><%= link_to 'Edit', edit_charge_path(charge) %></td>
+        <td><%= link_to 'Destroy', charge, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+   <% end %>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<h1>Disputed Charges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer firstname </th>
+      <th>Customer lastname </th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @charges.each do |charge| %>
+    <% if charge.charge_type == 'disputed' %>
+      <tr class="disputed">
+        <td><%= charge.customer.first_name %></td>
+        <td><%= charge.customer.last_name %></td>
+        <td><%= charge.amount %></td>
+        <td><%= charge.created %></td>
+       <!-- <td><%= link_to 'Show', charge %></td>
+        <td><%= link_to 'Edit', edit_charge_path(charge) %></td>
+        <td><%= link_to 'Destroy', charge, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+   <% end %>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h1>Successful Charges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer firstname </th>
+      <th>Customer lastname </th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @charges.each do |charge| %>
+    <% if charge.charge_type == 'successful' %>
+      <tr class="successful">
+        <td><%= charge.customer.first_name %></td>
+        <td><%= charge.customer.last_name %></td>
+        <td><%= charge.amount %></td>
+        <td><%= charge.created %></td>
+       <!-- <td><%= link_to 'Show', charge %></td>
+        <td><%= link_to 'Edit', edit_charge_path(charge) %></td>
+        <td><%= link_to 'Destroy', charge, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+   <% end %>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'New Charge', new_charge_path %>
